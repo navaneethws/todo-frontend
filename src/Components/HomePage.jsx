@@ -4,7 +4,7 @@ import ListItem from './ListItem'
 
 const HomePage = () => {
   return (
-    <div className='todolist-container h-screen bg-rose-600'>
+    <div className='todolist-container h-full bg-rose-600'>
       <InputTask />
       <ListItem />
     </div>
