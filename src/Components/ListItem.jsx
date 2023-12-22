@@ -21,6 +21,12 @@ const ListItem = () => {
         fetchData()
     }, [])
 
+    const handleDelete = async(id) =>{
+        const result = await axios.delete('http://localhost:8000/delete-employee/'+id)
+        alert(result.data.message);
+        fetchData()
+    }
+
     return (
         <div className=''>
             <div class='list-wrapper flex justify-center items-center flex-col'>
@@ -32,7 +38,7 @@ const ListItem = () => {
                             </div>
                             <div class="list-options w-full sm:w-3/12 md:w-3/12 xl:w-1/5 flex justify-between pr-4 mt-2 sm:mt-0">
                                 <button class='py-2 px-3 sm:py-3 sm:px-4 text-white bg-orange-600 rounded'><FaEdit /></button>
-                                <button class='py-2 px-3 sm:py-3 sm:px-4 text-white bg-red-700 rounded'><MdDelete /></button>
+                                <button onClick={(e)=>handleDelete(item.id)} class='py-2 px-3 sm:py-3 sm:px-4 text-white bg-red-700 rounded'><MdDelete /></button>
                             </div>
                         </div>
                     ))
